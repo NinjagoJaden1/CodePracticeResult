@@ -8,13 +8,15 @@
 		<data>
 		eyJkZXBlbmRlbmNpZXMiOltdLCJkaXNwbGF5TmFtZSI6IkRvZyBHdWlkZSIs
 		InBhY2thZ2VLaW5kIjp7InJvb3QiOnt9fSwicGxhdGZvcm1zIjpbeyJvcHRp
-		b25zIjpbXSwicGxhdGZvcm1OYW1lIjoiaW9zIiwidmVyc2lvbiI6IjE2LjAi
+		b25zIjpbXSwicGxhdGZvcm1OYW1lIjoiaW9zIiwidmVyc2lvbiI6IjE1LjIi
 		fV0sInByb2R1Y3RzIjpbeyJuYW1lIjoiRG9nIEd1aWRlIiwic2V0dGluZ3Mi
-		Olt7ImRpc3BsYXlWZXJzaW9uIjpbIjEuMCJdfSx7ImJ1bmRsZVZlcnNpb24i
-		OlsiMSJdfSx7ImlPU0FwcEluZm8iOlt7ImFjY2VudENvbG9yIjp7InByZXNl
-		dENvbG9yIjp7InByZXNldENvbG9yIjp7InJhd1ZhbHVlIjoibWludCJ9fX0s
-		ImFwcEljb24iOnsicGxhY2Vob2xkZXIiOnsiaWNvbiI6eyJyYXdWYWx1ZSI6
-		ImRvZyJ9fX0sImNhcGFiaWxpdGllcyI6W10sInN1cHBvcnRlZERldmljZUZh
+		Olt7ImJ1bmRsZUlkZW50aWZpZXIiOlsib25lLmhkY29sYS5qYWRlbi5Eb2ct
+		R3VpZGUiXX0seyJ0ZWFtSWRlbnRpZmllciI6WyJLOVRUU1RCOU1VIl19LHsi
+		ZGlzcGxheVZlcnNpb24iOlsiMS4wIl19LHsiYnVuZGxlVmVyc2lvbiI6WyIx
+		Il19LHsiaU9TQXBwSW5mbyI6W3siYWNjZW50Q29sb3IiOnsicHJlc2V0Q29s
+		b3IiOnsicHJlc2V0Q29sb3IiOnsicmF3VmFsdWUiOiJicm93biJ9fX0sImFw
+		cEljb24iOnsicGxhY2Vob2xkZXIiOnsiaWNvbiI6eyJyYXdWYWx1ZSI6InBl
+		bmNpbCJ9fX0sImNhcGFiaWxpdGllcyI6W10sInN1cHBvcnRlZERldmljZUZh
 		bWlsaWVzIjpbInBhZCIsInBob25lIl0sInN1cHBvcnRlZEludGVyZmFjZU9y
 		aWVudGF0aW9ucyI6W3sicG9ydHJhaXQiOnt9fSx7ImxhbmRzY2FwZVJpZ2h0
 		Ijp7fX0seyJsYW5kc2NhcGVMZWZ0Ijp7fX0seyJwb3J0cmFpdFVwc2lkZURv
@@ -26,16 +28,16 @@
 		IjoiZXhlY3V0YWJsZSJ9fSwidGFyZ2V0cyI6W3siZGVwZW5kZW5jaWVzIjpb
 		XSwiZXhjbHVkZSI6W10sIm5hbWUiOiJBcHBNb2R1bGUiLCJwYXRoIjoiLiIs
 		InJlc291cmNlcyI6W10sInNldHRpbmdzIjpbXSwidHlwZSI6ImV4ZWN1dGFi
-		bGUifV0sInRvb2xzVmVyc2lvbiI6eyJfdmVyc2lvbiI6IjUuNy4wIn19
+		bGUifV0sInRvb2xzVmVyc2lvbiI6eyJfdmVyc2lvbiI6IjUuNi4wIn19
 		</data>
 		<key>manifestHash</key>
 		<data>
-		HMVmz3nI3otladhDxyujy4CMF1JQmxp7D58DnPacHyE=
+		w/zdjUt7mscmI+lcRe0JqUtYsUF1c+pIYViGCfGdJTM=
 		</data>
 		<key>schemaVersion</key>
 		<integer>4</integer>
 		<key>swiftPMVersionString</key>
-		<string>5.7.1</string>
+		<string>5.8.0</string>
 	</dict>
 </dict>
 </plist>
