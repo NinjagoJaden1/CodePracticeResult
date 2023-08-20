@@ -1,19 +1,20 @@
 import SwiftUI
 
-struct GameView: View {
-    @State private var showingbear = false
+struct BarGameView: View {
+    @State private var showingphone = false
     @State var a = 0.5
-    @State var b = 0
+    @State var b = ["1","2","3"]
+    @State var c = 0
     @State var clawX : CGFloat = 0
     @State var clawY : CGFloat = 0
-    @State var bearX : CGFloat = CGFloat.random(in: -100..<200)
-    @State var bearY : CGFloat = 0
+    @State var phoneX : CGFloat = 0
+    @State var phoneY : CGFloat = -370
     @State var bunnyX : CGFloat = CGFloat.random(in: -100..<200)
     @State var bunnyY : CGFloat = 0
     @State var boneY : CGFloat = -30
     @State var boneX : CGFloat = 0
     @State var check  = false
-    @State var hitBear = true
+    @State var hitphone = true
     @State var hitbunny = true
     @State var shots = 0
     @State var score = 0
@@ -26,10 +27,9 @@ struct GameView: View {
         clawY = 0
     }
     var body: some View {
-        if showingbear == false{
+        if showingphone == false{
             VStack{
                 HStack{
-                    
                     Text("Tries: \(shots)")
                     Text("Prizes Obtained: \(score)")
                     Text("Time: \(time) Seconds")
@@ -43,21 +43,25 @@ struct GameView: View {
                 }
                 ZStack(alignment: .bottom) {
                     Rectangle()
-                        .fill(.blue)
-                    Image("bar")
-                        .resizable()
-                        .frame(width: 100, height: 600)
-                        .offset(x: -120, y: 236)
+                        .fill(.gray)
+                    VStack{
+                        Spacer()
+                        Image("bridge")
+                            .resizable()
+                            .frame(width: 450, height: 300)
+                            .offset(x: 0, y: 120)
                         
-
-                    Image("bear")
+                        Image("bridge")
+                            .resizable()
+                            .frame(width: 450, height: 300)
+                            .offset(x: 0, y: -250) 
+                            
+                        Spacer()
+                    }
+                    Image(b[c])
                         .resizable()
-                        .frame(width: 70, height: 70)
-                        .offset(x: bearX, y: bearY)
-                    Image("bunny")
-                        .resizable()
-                        .frame(width: 70, height: 70)
-                        .offset(x: bunnyX, y: bunnyY)
+                        .frame(width: 125, height: 125)
+                        .offset(x: phoneX, y: phoneY)
 
                     ZStack(alignment: .top){
                         Color.clear
@@ -65,7 +69,7 @@ struct GameView: View {
                             .resizable()
                             .frame(width: 100, height: 100)
                             .offset(x: clawX, y: clawY)
-                            
+                        
                     }
                 }
                 .frame(width:450,height:700)
@@ -78,7 +82,7 @@ struct GameView: View {
                             timeCheck = true
                             withAnimation(.easeInOut){
                                 clawX -= 10
-                                b += 15
+                                
                             }
                             
                         }label: {
@@ -92,104 +96,62 @@ struct GameView: View {
                                 check = true
                                 shots += 1
                                 a = 0.5
-
+                                
                                 withAnimation(.easeInOut(duration: 0.5)){
-                                    clawY = 620
-                                    
+                                    clawY = 250
                                 }
                                 withAnimation(.easeInOut(duration: 0.5).delay(0.7)){
-                                    if clawX >= bearX - 20 && clawX <= bearX + 20{
-                                        hitBear = false 
+                                    if clawX >= phoneX - 50 && clawX <= phoneX + 50{
+                                        hitphone = false 
                                         score += 1
                                     }                                
                                 }
                                 withAnimation(.easeInOut(duration: 0.0001).delay(1.2)){
                                     check = false
                                     boneY = -30
-                                    if hitBear == false{
-                                        a = 2.5
-                                        withAnimation(.easeInOut(duration: 1.0)){
+                                    if hitphone == false{
+                                        a = 1.0
+                                        if c == 2{
+                                            c = 0
+                            
+                                        }else{
+                                            c+=1
+                                        }
+                                        withAnimation(.easeInOut(duration: 0.5)){
                                             claw = "claw"   
                                         }
-                                       
+                                        
                                         claw = "claw"
-                                        withAnimation(.easeInOut(duration: 0.5).delay(1.0)){
+                                        withAnimation(.easeInOut(duration: 0.5).delay(0.5)){
                                             clawY = 0
-                                            bearY = -620
                                         }
-                                        withAnimation(.easeInOut(duration: 0.5).delay(1.5)){
-                                            clawX = -200
-                                            bearX = -200
-                                        }
-                                        withAnimation(.easeInOut(duration: 0.5).delay(2.0)){
-                                            clawY = 620
-                                            bearY = 0
-                                        }
+
+//                                        withAnimation(.easeInOut(duration: 0.5).delay(2.0)){
+//                                            clawY = 620
+//                                        }
                                         
                                         
                                         
                                         
                                     }
-                                    hitBear = true
+                                    hitphone = true
                                 }
-                                withAnimation(.easeInOut(duration: 0.5).delay(0.7)){
-                                    if clawX >= bunnyX - 20 && clawX <= bunnyX + 20{
-                                        hitbunny = false 
-                                        score += 1
-                                    }                                
-                                }
-                                withAnimation(.easeInOut(duration: 0.0001).delay(1.2)){
-                                    check = false
-                                    boneY = -30
-                                    if hitbunny == false{
-                                        a = 2.5
-                                        withAnimation(.easeInOut(duration: 1.0)){
-                                            claw = "claw"   
-                                        }
-                                        
-                                        claw = "claw"
-                                        withAnimation(.easeInOut(duration: 0.5).delay(1.0)){
-                                            clawY = 0
-                                            bunnyY = -620
-                                        }
-                                        withAnimation(.easeInOut(duration: 0.5).delay(1.5)){
-                                            clawX = -200
-                                            bunnyX = -200
-                                        }
-                                        withAnimation(.easeInOut(duration: 0.5).delay(2.0)){
-                                            clawY = 620
-                                            bunnyY = 0
-                                        }
-                                        
-                                        
-                                        
-                                        
-                                    }
-                                    hitbunny = true
-                                }
+                        
                                 withAnimation(.easeInOut(duration: 0.5).delay(a)){
                                     genPosition()
-                                    bearX = CGFloat.random(in: -100..<200)
-                                    bearY = 0
-                                    bunnyX = CGFloat.random(in: -100..<200)
-                                    bunnyY = 0
                                 }
-
+                                
                             }.keyboardShortcut(.space, modifiers: [])
                             
-                             
+                            
                             Button("Restart Game"){
                                 genPosition()
-                                bearX = CGFloat.random(in: -100..<200)
-                                bearY = 0
-                                bunnyX = CGFloat.random(in: -100..<200)
-                                bunnyY = 0
+
                                 check  = false
-                                hitBear = true
+                                hitphone = true
                                 shots = 0
                                 score = 0
                                 timeCheck = false
-                                print(bunnyX)
                             }
                             
                         }
@@ -209,7 +171,7 @@ struct GameView: View {
                         
                     }
                     Button() {
-                        showingbear = true
+                        showingphone = true
                     } label: {
                         ZStack {
                             Color(red: 0, green: 0.8, blue: 0.6)
@@ -227,15 +189,15 @@ struct GameView: View {
                 
             }
         }
-        if showingbear == true{
+        if showingphone == true{
             HomeView()
         }
         
     }
 }
 
-struct GameView_Previews: PreviewProvider {
+struct BarGameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        BarGameView()
     }
 }
