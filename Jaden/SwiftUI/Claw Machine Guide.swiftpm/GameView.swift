@@ -116,6 +116,7 @@ struct GameView: View {
                                         withAnimation(.easeInOut(duration: 0.5).delay(1.0)){
                                             clawY = 0
                                             bearY = -620
+                                            
                                         }
                                         withAnimation(.easeInOut(duration: 0.5).delay(1.5)){
                                             clawX = -200
@@ -151,6 +152,8 @@ struct GameView: View {
                                         withAnimation(.easeInOut(duration: 0.5).delay(1.0)){
                                             clawY = 0
                                             bunnyY = -620
+                                            print("hit")
+//                                            claw = "closedclaw"
                                         }
                                         withAnimation(.easeInOut(duration: 0.5).delay(1.5)){
                                             clawX = -200
