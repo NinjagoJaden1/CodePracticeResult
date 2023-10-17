@@ -6,7 +6,8 @@ struct BridgeStyleView: View {
     @State var a = 0
     @State private var showingInfo = false
     @State private var showingWin = false
-    @State private var showingDesign = false
+    @State private var showingHome = false
+
     let infoCrane = ["Information on Machine","A bridge-style claw machine is an arcade game featuring a claw mechanism attached to a horizontal bridge that moves left and right. Players aim to position the claw over prizes and then lower it to grab them. These machines offer a variety of prizes and require both skill and luck to win. Operators can adjust the difficulty, and their popularity in arcades has led to some controversy regarding their fairness. Virtual versions are also available online and in mobile apps, replicating the gameplay of physical machines."]
     let winCrane = ["How to Win!","Pick Prizes Wisely: Choose ones closer to the prize drop and easily accessible.","Position the Claw Right: Move it accurately over your target prize."," Time Your Move: Lower the claw when it's directly over the prize and in a good position."," Be Patient: Crane machines are tough; practice and patience help."]
     // create array with name and then answer and then toggle switch between texts to show that when clicked it switches to answer
@@ -14,21 +15,7 @@ struct BridgeStyleView: View {
     
     var body: some View {
         VStack{
-            if showingInfo == false && showingWin == false && showingDesign == false && showingGame == false {
-                Button() {
-                    showingDesign = true
-                } label: {
-                    ZStack {
-                        Color(red: 0, green: 0.8, blue: 0.6)
-                        Text("Design of Machine")
-                            .font(.system(size: 40, design: .rounded))
-                            .bold()
-                            .foregroundColor(.black)
-                            .font(.title)
-                    }
-                    .cornerRadius(20)
-                    .padding()
-                } 
+            if showingInfo == false && showingWin == false && showingGame == false && showingHome == false {
                 
                 Button() {
 
@@ -66,6 +53,9 @@ struct BridgeStyleView: View {
                     .padding()
                     
                 }
+                Image("image4")
+                    .resizable()
+                    .frame(width: 400, height: 400)
                 Button() {
                     
                     showingGame = true
@@ -74,6 +64,23 @@ struct BridgeStyleView: View {
                     ZStack {
                         Color(red: 0, green: 0.8, blue: 0.6)
                         Text("Playable Game")
+                            .font(.system(size: 40, design: .rounded))
+                            .bold()
+                            .foregroundColor(.black)
+                            .font(.title)
+                    }
+                    .cornerRadius(20)
+                    .padding()
+                    
+                }
+                Button() {
+                    
+                    showingHome = true
+                    
+                } label: {
+                    ZStack {
+                        Color(red: 0, green: 0.8, blue: 0.6)
+                        Text("Home")
                             .font(.system(size: 40, design: .rounded))
                             .bold()
                             .foregroundColor(.black)
@@ -143,6 +150,9 @@ struct BridgeStyleView: View {
         
         if showingGame == true{
             BarGameView()
+        }
+        if showingHome == true{
+            HomeView()
         }
     }
 }

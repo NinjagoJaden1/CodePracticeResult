@@ -5,7 +5,7 @@ struct BarGameView: View {
     @State var a = 0.5
     @State var b = ["1","2","3"]
     @State var c = 0
-    @State var clawX : CGFloat = 0
+    @State var clawX : CGFloat = -180
     @State var clawY : CGFloat = 0
     @State var phoneX : CGFloat = 0
     @State var phoneY : CGFloat = -370
@@ -23,8 +23,10 @@ struct BarGameView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timeCheck = false
     func genPosition(){
-        clawX = -190
+        clawX = -180
         clawY = 0
+        c = 0
+        phoneY = -370
     }
     var body: some View {
         if showingphone == false{
@@ -73,9 +75,9 @@ struct BarGameView: View {
                     }
                 }
                 .frame(width:450,height:700)
-                .onAppear{
-                    genPosition()
-                }
+//                .onAppear{
+//                    genPosition()
+//                }
                 VStack{
                     HStack{
                         Button{
@@ -103,7 +105,8 @@ struct BarGameView: View {
                                 withAnimation(.easeInOut(duration: 0.5).delay(0.7)){
                                     if clawX >= phoneX - 50 && clawX <= phoneX + 50{
                                         hitphone = false 
-                                        score += 1
+                                        
+                                        
                                     }                                
                                 }
                                 withAnimation(.easeInOut(duration: 0.0001).delay(1.2)){
@@ -126,9 +129,13 @@ struct BarGameView: View {
                                             clawY = 0
                                         }
 
-//                                        withAnimation(.easeInOut(duration: 0.5).delay(2.0)){
-//                                            clawY = 620
-//                                        }
+                                        withAnimation(.easeInOut(duration: 0.5).delay(2.0)){
+                                            if c == 2{
+                                                phoneY = 0
+                                                    score += 1
+                                            }
+                                            
+                                        }
                                         
                                         
                                         
@@ -138,9 +145,10 @@ struct BarGameView: View {
                                 }
                         
                                 withAnimation(.easeInOut(duration: 0.5).delay(a)){
-                                    genPosition()
+                                    clawX = -180
+                                    clawY = 0
                                 }
-                                
+//                                
                             }.keyboardShortcut(.space, modifiers: [])
                             
                             

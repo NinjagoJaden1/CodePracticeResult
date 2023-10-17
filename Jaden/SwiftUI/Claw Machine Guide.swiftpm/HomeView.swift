@@ -3,10 +3,9 @@ import SwiftUI
 struct HomeView: View {
     @State private var showingCrane = false
     @State private var showingBridge = false
-    @State private var showingRubber = false
     var body: some View {
         VStack{
-            if showingCrane == false && showingBridge == false && showingRubber == false {
+            if showingCrane == false && showingBridge == false{
                 ZStack{
                     Color(red: 0, green: 0.8, blue: 0.6)
                     VStack{
@@ -25,7 +24,9 @@ struct HomeView: View {
                 }
                 .cornerRadius(20)
                 .padding()
-                
+                Image("image2")
+                    .resizable()
+                    .frame(width: 400, height: 400)
                 Button() {
                     
                     showingCrane = true
@@ -43,6 +44,9 @@ struct HomeView: View {
                     .padding()
                     
                 }
+                Image("image1")
+                    .resizable()
+                    .frame(width: 400, height: 400)
                 Button() {
                     showingBridge = true
                     
@@ -59,22 +63,7 @@ struct HomeView: View {
                     .padding()
                     
                 }
-                Button() { 
-                    showingRubber = true
-                    
-                } label: {
-                    ZStack {
-                        Color(red: 0, green: 0.8, blue: 0.6)
-                        Text("Rubber Band Machine")
-                            .font(.system(size: 40, design: .rounded))
-                            .bold()
-                            .foregroundColor(.black)
-                            .font(.title)
-                    }
-                    .cornerRadius(20)
-                    .padding()
-                    
-                }
+               
             }
         }
         if showingCrane == true{
@@ -83,9 +72,7 @@ struct HomeView: View {
         if showingBridge == true{
             BridgeStyleView()
         }
-        if showingRubber == true{
-            RubberBandView()
-        }
+        
         
     }
 }

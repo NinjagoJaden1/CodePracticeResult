@@ -5,7 +5,7 @@ struct ViewModel{
     var last : Grid? = nil
     
     init(){
-        let lastChess = ["Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook"]
+        let lastChess = ["1", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook"]
         let pawns = ["Pawn", "Pawn", "Pawn", "Pawn", "Pawn", "Pawn", "Pawn", "Pawn"]
         let nothing = ["", "", "", "", "", "", "", ""]
         board = []

@@ -17,6 +17,8 @@ struct Grid{
             return moveBishop(board: board, end: end)
         }else if token.name == "Queen"{
             return moveQueen(board: board, end: end)
+        }else if token.name == "King"{
+            return moveKing(board: board, end: end)
         }
         return false
     }
@@ -176,7 +178,17 @@ struct Grid{
         }
         return false
     }
-    
+    func moveKing(board: [[Grid]], end: Grid) -> Bool {
+        let dx = abs(end.x - x)
+        let dy = abs(end.y - y)
+        
+        // Check if the end position is within one square in any direction
+        if dx <= 1 && dy <= 1 && end.token.color != token.color {
+            return true
+        }
+        
+        return false
+    }
     
     func moveKnight(board:[[Grid]], end: Grid) -> Bool{
         var path : [Grid] = []
