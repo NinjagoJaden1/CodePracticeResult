@@ -41,8 +41,10 @@ struct ContentView: View {
                                 Rectangle()
                                     .fill(vm.board[x][y].color)
                                 VStack{
-                                    Text(vm.board[x][y].token.name)
+                                    Image(vm.board[x][y].token.name)
+                                        .resizable()
                                         .foregroundColor(.blue)
+                                    
                                 }
                             }
                             .onTapGesture {
