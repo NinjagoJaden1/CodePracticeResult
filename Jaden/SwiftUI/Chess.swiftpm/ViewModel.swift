@@ -5,8 +5,8 @@ struct ViewModel{
     var last : Grid? = nil
     
     init(){
-        let lastChess = ["2", "3", "4", "5", "6", "4", "3", "2"]
-        let pawns = ["1", "1", "1", "1", "1", "1", "1", "1"]
+        let lastChess = ["Puffer", "Seahors", "Sword", "Whale", "Shark", "Sword", "Seahors", "Puffer"]
+        let pawns = ["Minnow", "Minnow", "Minnow", "Minnow", "Minnow", "Minnow", "Minnow", "Minnow"]
         let nothing = ["", "", "", "", "", "", "", ""]
         board = []
         
@@ -27,17 +27,14 @@ struct ViewModel{
         return  lineChess
     }
     
-    mutating func tapGrid(grid: Grid) {
-        print("Tapped on grid: \(grid)")
-        if let last = last, last.token.name != "" && grid.token.name != "" && grid.token.color != last.token.color {
-            print("Conditions for moving the piece are met")
-            if last.isCanMove(board: board, end: grid) {
+    mutating func tapGrid(grid: Grid){
+        if let last, last.token.color != .clear && grid.token.color != last.token.color{
+            if last.isCanMove(board: board, end: grid){
                 self.last = nil
                 board[grid.x][grid.y].token = last.token
                 board[last.x][last.y].token = Token(name: "", color: .clear)
             }
-        } else {
-            print("Conditions for moving the piece are not met")
+        }else{
             self.last = grid
         }
     }

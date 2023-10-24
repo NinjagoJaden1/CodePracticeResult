@@ -7,17 +7,17 @@ struct Grid{
     var token : Token
     
     func isCanMove( board:[[Grid]], end: Grid) -> Bool{
-         if token.name == "Pawn"{
+         if token.name == "Minnow"{
             return movePawn(board: board, end: end)
-        }else if token.name == "Knight"{
+        }else if token.name == "Seahors"{
             return moveKnight(board: board, end: end)
-        }else if token.name == "Rook"{
+        }else if token.name == "Puffer"{
             return moveRook(board: board, end: end)
-        }else if token.name == "Bishop"{
+        }else if token.name == "Sword"{
             return moveBishop(board: board, end: end)
-        }else if token.name == "Queen"{
+        }else if token.name == "Whale"{
             return moveQueen(board: board, end: end)
-        }else if token.name == "King"{
+        }else if token.name == "Shark"{
             return moveKing(board: board, end: end)
         }
         return false

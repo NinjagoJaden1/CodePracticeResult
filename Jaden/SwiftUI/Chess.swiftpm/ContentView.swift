@@ -41,9 +41,8 @@ struct ContentView: View {
                                 Rectangle()
                                     .fill(vm.board[x][y].color)
                                 VStack{
-                                    Image(vm.board[x][y].token.name)
-                                        .resizable()
-                                        .foregroundColor(.blue)
+                                    Text(vm.board[x][y].token.name)
+                                        .foregroundColor(vm.board[x][y].token.color)
                                     
                                 }
                             }
